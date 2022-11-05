@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+</script>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+
+
+<body>
+    <div class="container">
+        <form id="vform">
+            <p>Welcome</p>
+            <input type="text" placeholder="Username" id="username" pattern=".{3,25}" title="must contain (3-25) characters" required><br>
+            <input type="email" placeholder="Email" id="email" required><br>
+            <input type="password" placeholder="Password" id="pass" name="pass" class="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[@#$%^&+=])(?=.*[A-Z]).{8,}" 
+            title="Must contain at least one number and one special symbol and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
+            <input type="password" placeholder="Confirm Password" id="cpass" class="cpass"><br>
+            <input type="submit" value="Sign in"> 
+            <p id="valid"> </p>
+        </form>
+    </div>
+    
+</body>
+
+  <script>
+
+$(document).ready(function() {$("#pass, #cpass").keyup(validate);});
+
+function validate() {
+  var pass1 = $("#pass").val();
+  var pass2 = $("#cpass").val();
+
+  if (pass1 == pass2) {$("#valid").text("Password match");
+  } else {$("#valid").text("Password do not match");}
+}
+
+</script>
+
+
+</html>
